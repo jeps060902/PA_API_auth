@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\AuthResource;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
+class AuthController extends Controller
+{
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255|unique:users',
+            'username' => 'required|string|max:255|unique:users',
+            'password' => 'required|string|min:8'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors());
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => Hash::make($request->password)
+        ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return new AuthResource(true, 'berhasil registrasi!', $user, $token);
+    }
+
+    public function login(Request $request)
+    {
+        if (! Auth::attempt($request->only('email', 'password'))) {
+            return new AuthResource(true, 'login Gagal', [], []);
+        }
+
+        $user = User::where('email', $request->email)->firstOrFail();
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return new AuthResource(true, 'login sukses!', $user, $token);
+    }
+}

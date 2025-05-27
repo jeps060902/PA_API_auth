@@ -1,0 +1,128 @@
+.btn-grad {
+    background-image: linear-gradient(
+        to right,
+        #1fa2ff 0%,
+        #12d8fa 51%,
+        #1fa2ff 100%
+    );
+}
+.btn-grad {
+    margin: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+.badgeEdit-grad {
+    background-image: linear-gradient(
+        to right,
+        #f09819 0%,
+        #edde5d 51%,
+        #f09819 100%
+    );
+    background-size: 200% auto;
+    padding: 1px 4px; /* Lebih sempit */
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 999px;
+    display: inline-block;
+    box-shadow: 0 0 2px #aaa;
+    transition: 0.3s;
+    line-height: 1;
+    max-width: fit-content;
+}
+
+.badgeEdit-grad:hover {
+    background-position: right center;
+    text-decoration: none;
+}
+.badgeHapus-grad {
+    background-image: linear-gradient(
+        to right,
+        #d31027 0%,
+        #ea384d 51%,
+        #d31027 100%
+    );
+    background-size: 200% auto;
+    color: white;
+    padding: 1px 4px; /* Lebih sempit */
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 999px;
+    display: inline-block;
+    box-shadow: 0 0 2px #aaa;
+    transition: 0.3s;
+    line-height: 1;
+    max-width: fit-content;
+}
+
+.badgeHapus-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+.badgeTambah-grad {
+    background-image: linear-gradient(
+        to right,
+        #1fa2ff 0%,
+        #12d8fa 51%,
+        #1fa2ff 100%
+    );
+    background-size: 200% auto;
+    color: white;
+    padding: 1px 4px; /* Lebih sempit */
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 999px;
+    display: inline-block;
+    box-shadow: 0 0 2px #aaa;
+    transition: 0.3s;
+    line-height: 1;
+    max-width: fit-content;
+}
+
+.badgeTambah-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.badgeClear-grad {
+    background-image: linear-gradient(
+        to right,
+        #da22ff 0%,
+        #9733ee 51%,
+        #da22ff 100%
+    );
+    background-size: 200% auto;
+    color: white;
+    padding: 2px 8px; /* Lebih sempit */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 999px;
+    display: inline-block;
+    box-shadow: 0 0 2px #aaa;
+    transition: 0.3s;
+    line-height: 1;
+    max-width: fit-content;
+}
+
+.badgeClear-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
