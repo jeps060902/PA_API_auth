@@ -40,7 +40,10 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if (! Auth::attempt($request->only('email', 'password'))) {
-            return new AuthResource(true, 'login Gagal', [], []);
+            return response()->json([
+                'success' => false,
+                'message' => 'Login gagal',
+            ], 401); // 401
         }
 
         $user = User::where('email', $request->email)->firstOrFail();
@@ -48,5 +51,15 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return new AuthResource(true, 'login sukses!', $user, $token);
+    }
+    public function logout(Request $request)
+    {
+        // Hapus token milik user yang sedang login
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Berhasil logout',
+        ]);
     }
 }
